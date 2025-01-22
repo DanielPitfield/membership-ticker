@@ -16,13 +16,13 @@ type PoliticalPartyMembershipDataItem = {
   colour: string;
 };
 
-// Mock data
+// https://en.wikipedia.org/wiki/Political_party_affiliation_in_the_United_Kingdom#Current_membership
 export const STATIC_MEMBERSHIP_DATA: PoliticalPartyMembershipDataItem[] = [
-  { name: "Labour", count: 100000, colour: "#e91d0e" },
-  { name: "Conservatives", count: 100000, colour: "#0575c9" },
-  { name: "Reform UK", count: 100000, colour: "#0ad1e0" },
-  { name: "Liberal Democrats", count: 100000, colour: "#ff9a02" },
-  { name: "Green", count: 100000, colour: "#5fb25f" },
-  { name: "SNP", count: 100000, colour: "#ffd02c" },
-  { name: "Plaid Cymru", count: 100000, colour: "#13e594" },
+  { name: "Labour", count: 366_604, colour: "#e91d0e" },
+  { name: "Conservatives", count: 131_680, colour: "#0575c9" },
+  { name: "Reform UK", count: 184_797, colour: "#0ad1e0" },
+  { name: "Liberal Democrats", count: 90_000, colour: "#ff9a02" },
+  { name: "Green", count: 59_000, colour: "#5fb25f" },
+  { name: "SNP", count: 69_325, colour: "#ffd02c" },
+  { name: "Plaid Cymru", count: 10_000, colour: "#13e594" },
 ];
