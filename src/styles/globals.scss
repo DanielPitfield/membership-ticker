@@ -66,6 +66,14 @@ button {
   }
 }
 
+select {
+  display: flex;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+  border-radius: 2px;
+}
+
 section {
   display: flex;
   flex-grow: 1;

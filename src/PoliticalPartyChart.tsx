@@ -1,3 +1,4 @@
+import { PARTY_COLOURS, type PoliticalPartyDataItem } from "./data";
 import {
   Bar,
   BarChart,
@@ -7,13 +8,16 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { STATIC_MEMBERSHIP_DATA } from "./data";
 
-export function MembershipChart() {
+interface PoliticalPartyChartProps {
+  data: PoliticalPartyDataItem[];
+}
+
+export function PoliticalPartyChart(props: PoliticalPartyChartProps) {
   return (
     <ResponsiveContainer width="80%" height="95%">
       <BarChart
-        data={STATIC_MEMBERSHIP_DATA}
+        data={props.data}
         width={500}
         height={300}
         margin={{
@@ -28,9 +32,13 @@ export function MembershipChart() {
         <YAxis />
 
         <Bar dataKey="count">
-          {STATIC_MEMBERSHIP_DATA.map((entry) => (
-            <Cell key={entry.name} fill={entry.colour} />
-          ))}
+          {props.data.map((entry) => {
+            const colour =
+              PARTY_COLOURS.find((party) => party.name === entry.name)
+                ?.colour ?? "#000000";
+
+            return <Cell key={entry.name} fill={colour} />;
+          })}
         </Bar>
       </BarChart>
     </ResponsiveContainer>
