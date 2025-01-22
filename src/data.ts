@@ -34,7 +34,7 @@ export const PARTY_COLOURS: { name: PoliticalPartyName; colour: string }[] = [
 ];
 
 // https://en.wikipedia.org/wiki/Political_party_affiliation_in_the_United_Kingdom#Current_membership
-export const MEMBERSHIP_DATA: PoliticalPartyDataItem[] = [
+const MEMBERSHIP_DATA: PoliticalPartyDataItem[] = [
   { name: "Labour", count: 366_604 },
   { name: "Conservatives", count: 131_680 },
   { name: "Reform UK", count: 184_797 },
@@ -45,7 +45,7 @@ export const MEMBERSHIP_DATA: PoliticalPartyDataItem[] = [
 ];
 
 // https://www.bbc.co.uk/news/election/2024/uk/results
-export const GENERAL_ELECTION_2024_SEATS_DATA: PoliticalPartyDataItem[] = [
+const GENERAL_ELECTION_2024_SEATS_DATA: PoliticalPartyDataItem[] = [
   { name: "Labour", count: 412 },
   { name: "Conservatives", count: 121 },
   { name: "Reform UK", count: 5 },
@@ -56,7 +56,7 @@ export const GENERAL_ELECTION_2024_SEATS_DATA: PoliticalPartyDataItem[] = [
 ];
 
 // https://www.bbc.co.uk/news/election/2024/uk/results
-export const GENERAL_ELECTION_2024_VOTE_SHARE_DATA: PoliticalPartyDataItem[] = [
+const GENERAL_ELECTION_2024_VOTE_SHARE_DATA: PoliticalPartyDataItem[] = [
   { name: "Labour", count: 33.7 },
   { name: "Conservatives", count: 23.7 },
   { name: "Reform UK", count: 14.3 },
@@ -67,16 +67,15 @@ export const GENERAL_ELECTION_2024_VOTE_SHARE_DATA: PoliticalPartyDataItem[] = [
 ];
 
 // https://findoutnow.co.uk/blog/voting-intention-8th-jan-2025/
-export const JANUARY_2025_POLL_VOTING_INTENTION_DATA: PoliticalPartyDataItem[] =
-  [
-    { name: "Labour", count: 25 },
-    { name: "Conservatives", count: 20 },
-    { name: "Reform UK", count: 25 },
-    { name: "Liberal Democrats", count: 11 },
-    { name: "Green", count: 11 },
-    { name: "SNP", count: 3 },
-    { name: "Plaid Cymru", count: 1 },
-  ];
+const JANUARY_2025_POLL_VOTING_INTENTION_DATA: PoliticalPartyDataItem[] = [
+  { name: "Labour", count: 25 },
+  { name: "Conservatives", count: 20 },
+  { name: "Reform UK", count: 25 },
+  { name: "Liberal Democrats", count: 11 },
+  { name: "Green", count: 11 },
+  { name: "SNP", count: 3 },
+  { name: "Plaid Cymru", count: 1 },
+];
 
 export const DATASETS: { name: DatasetName; data: PoliticalPartyDataItem[] }[] =
   [
@@ -90,4 +89,9 @@ export const DATASETS: { name: DatasetName; data: PoliticalPartyDataItem[] }[] =
       name: "January 2025 - Voting Intention Poll",
       data: JANUARY_2025_POLL_VOTING_INTENTION_DATA,
     },
-  ];
+  ]
+    // Sort the data items of each dataset in descending order
+    .map((dataset) => ({
+      name: dataset.name as DatasetName,
+      data: dataset.data.sort((a, b) => b.count - a.count),
+    }));
