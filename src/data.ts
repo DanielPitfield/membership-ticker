@@ -8,7 +8,15 @@ const POLITICAL_PARTIES = [
   "Plaid Cymru",
 ] as const;
 
-type PoliticalPartyName = (typeof POLITICAL_PARTIES)[number];
+export const DATASET_NAMES = [
+  "Membership count",
+  "General Election Seats",
+  "General Election Vote Share",
+  "January 2025 - Voting Intention Poll",
+] as const;
+
+export type PoliticalPartyName = (typeof POLITICAL_PARTIES)[number];
+export type DatasetName = (typeof DATASET_NAMES)[number];
 
 export type PoliticalPartyDataItem = {
   name: PoliticalPartyName;
@@ -70,15 +78,16 @@ export const JANUARY_2025_POLL_VOTING_INTENTION_DATA: PoliticalPartyDataItem[] =
     { name: "Plaid Cymru", count: 1 },
   ];
 
-export const DATASETS: { name: string; data: PoliticalPartyDataItem[] }[] = [
-  { name: "Membership count", data: MEMBERSHIP_DATA },
-  { name: "General Election Seats", data: GENERAL_ELECTION_2024_SEATS_DATA },
-  {
-    name: "General Election Vote Share",
-    data: GENERAL_ELECTION_2024_VOTE_SHARE_DATA,
-  },
-  {
-    name: "January 2025 - Voting Intention Poll",
-    data: JANUARY_2025_POLL_VOTING_INTENTION_DATA,
-  },
-];
+export const DATASETS: { name: DatasetName; data: PoliticalPartyDataItem[] }[] =
+  [
+    { name: "Membership count", data: MEMBERSHIP_DATA },
+    { name: "General Election Seats", data: GENERAL_ELECTION_2024_SEATS_DATA },
+    {
+      name: "General Election Vote Share",
+      data: GENERAL_ELECTION_2024_VOTE_SHARE_DATA,
+    },
+    {
+      name: "January 2025 - Voting Intention Poll",
+      data: JANUARY_2025_POLL_VOTING_INTENTION_DATA,
+    },
+  ];

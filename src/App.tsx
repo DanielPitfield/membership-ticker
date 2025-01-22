@@ -1,24 +1,24 @@
 import { useState } from "react";
-import { DATASETS, PoliticalPartyDataItem } from "./data";
+import { DATASET_NAMES, DatasetName, DATASETS } from "./data";
 import { PoliticalPartyChart } from "./PoliticalPartyChart";
 
-const DEFAULT_DATA = DATASETS?.[0]?.data ?? [];
-
 function App() {
-  const [data, setData] = useState<PoliticalPartyDataItem[]>(DEFAULT_DATA);
+  const [selectedDatasetName, setSelectedDatasetName] = useState<DatasetName>(
+    DATASET_NAMES?.[0]
+  );
+
+  const data =
+    DATASETS.find((dataset) => dataset.name === selectedDatasetName)?.data ??
+    DATASETS?.[0].data ??
+    [];
 
   return (
     <>
       <select
-        onChange={(e) =>
-          setData(
-            DATASETS.find((dataset) => dataset.name === e.target.value)?.data ??
-              DEFAULT_DATA
-          )
-        }
+        onChange={(e) => setSelectedDatasetName(e.target.value as DatasetName)}
       >
-        {DATASETS.map((dataset) => (
-          <option value={dataset.name}>{dataset.name}</option>
+        {DATASET_NAMES.map((datasetName) => (
+          <option value={datasetName}>{datasetName}</option>
         ))}
       </select>
 
