@@ -2,10 +2,8 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
-  Legend,
-  Rectangle,
+  Cell,
   ResponsiveContainer,
-  Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
@@ -26,17 +24,14 @@ export function MembershipChart() {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-
         <XAxis dataKey="name" />
         <YAxis />
-        <Tooltip />
-        <Legend />
 
-        <Bar
-          dataKey="count"
-          fill="#8884d8"
-          activeBar={<Rectangle fill="pink" stroke="blue" />}
-        />
+        <Bar dataKey="count">
+          {STATIC_MEMBERSHIP_DATA.map((entry) => (
+            <Cell key={entry.name} fill={entry.colour} />
+          ))}
+        </Bar>
       </BarChart>
     </ResponsiveContainer>
   );
