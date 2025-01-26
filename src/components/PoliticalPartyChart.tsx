@@ -1,4 +1,4 @@
-import { PARTY_COLOURS, type PoliticalPartyDataItem } from "./data";
+import { PARTY_COLOURS, type PoliticalPartyDataItem } from "../utils/data";
 import {
   Bar,
   BarChart,

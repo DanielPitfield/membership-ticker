@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { DATASET_NAMES, DatasetName, DATASETS } from "./data";
-import { PoliticalPartyChart } from "./PoliticalPartyChart";
+import { DATASET_NAMES, DatasetName, DATASETS } from "./utils/data";
+import { PoliticalPartyChart } from "./components/PoliticalPartyChart";
 
 function App() {
   const [selectedDatasetName, setSelectedDatasetName] = useState<DatasetName>(
