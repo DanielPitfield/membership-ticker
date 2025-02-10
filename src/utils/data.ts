@@ -34,10 +34,11 @@ export const PARTY_COLOURS: { name: PoliticalPartyName; colour: string }[] = [
 ];
 
 // https://en.wikipedia.org/wiki/Political_party_affiliation_in_the_United_Kingdom#Current_membership
+// https://www.reformparty.uk/counter
 const MEMBERSHIP_DATA: PoliticalPartyDataItem[] = [
-  { name: "Labour", count: 366_604 },
+  { name: "Labour", count: 309_000 },
   { name: "Conservatives", count: 131_680 },
-  { name: "Reform UK", count: 184_797 },
+  { name: "Reform UK", count: 204_363 },
   { name: "Liberal Democrats", count: 90_000 },
   { name: "Green", count: 59_000 },
   { name: "SNP", count: 69_325 },
