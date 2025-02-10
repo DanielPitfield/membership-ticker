@@ -10,6 +10,7 @@ import {
   CartesianGrid,
   Cell,
   ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
@@ -61,6 +62,8 @@ export function PoliticalPartyChart(props: PoliticalPartyChartProps) {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
+
+        <Tooltip />
 
         <Bar dataKey="count">
           {data.map((entry) => {
