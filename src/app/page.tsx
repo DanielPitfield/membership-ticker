@@ -1,3 +1,6 @@
+// Fresh data on each request (on demand instead of being pre-rendered)
+export const dynamic = "force-dynamic";
+
 import { DataDisplay } from "@/components/DataDisplay";
 
 type MembershipData = { current_total: number };
@@ -16,6 +19,8 @@ export default async function Home() {
 
       return data?.current_total ?? 0;
     } catch (err) {
+      console.error(err);
+
       return 0;
     }
   })();
