@@ -1,8 +1,10 @@
-import { useState } from "react";
-import { DATASET_NAMES, DatasetName, DATASETS } from "./utils/data";
-import { PoliticalPartyChart } from "./components/PoliticalPartyChart";
+"use client";
 
-function App() {
+import { PoliticalPartyChart } from "@/components/PoliticalPartyChart";
+import { DatasetName, DATASET_NAMES, DATASETS } from "@/utils/data";
+import { useState } from "react";
+
+export default function Home() {
   const [selectedDatasetName, setSelectedDatasetName] = useState<DatasetName>(
     DATASET_NAMES?.[0]
   );
@@ -18,7 +20,9 @@ function App() {
         onChange={(e) => setSelectedDatasetName(e.target.value as DatasetName)}
       >
         {DATASET_NAMES.map((datasetName) => (
-          <option value={datasetName}>{datasetName}</option>
+          <option key={datasetName} value={datasetName}>
+            {datasetName}
+          </option>
         ))}
       </select>
 
@@ -28,5 +32,3 @@ function App() {
     </>
   );
 }
-
-export default App;

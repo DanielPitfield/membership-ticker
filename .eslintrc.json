@@ -1,0 +1,14 @@
+{
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parserOptions": {
+        "project": "tsconfig.json"
+      }
+    }
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": ["next/core-web-vitals"]
+}
