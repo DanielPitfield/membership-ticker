@@ -13,6 +13,7 @@ export const DATASET_NAMES = [
   "General Election Seats",
   "General Election Vote Share",
   "January 2025 - Voting Intention Poll",
+  "February 2025 - Voting Intention Poll",
 ] as const;
 
 export type PoliticalPartyName = (typeof POLITICAL_PARTIES)[number];
