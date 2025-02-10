@@ -13,6 +13,7 @@ export const DATASET_NAMES = [
   "General Election Seats",
   "General Election Vote Share",
   "January 2025 - Voting Intention Poll",
+  "February 2025 - Voting Intention Poll",
 ] as const;
 
 export type PoliticalPartyName = (typeof POLITICAL_PARTIES)[number];
@@ -34,10 +35,11 @@ export const PARTY_COLOURS: { name: PoliticalPartyName; colour: string }[] = [
 ];
 
 // https://en.wikipedia.org/wiki/Political_party_affiliation_in_the_United_Kingdom#Current_membership
+// https://www.reformparty.uk/counter
 const MEMBERSHIP_DATA: PoliticalPartyDataItem[] = [
-  { name: "Labour", count: 366_604 },
+  { name: "Labour", count: 309_000 },
   { name: "Conservatives", count: 131_680 },
-  { name: "Reform UK", count: 184_797 },
+  { name: "Reform UK", count: 204_363 },
   { name: "Liberal Democrats", count: 90_000 },
   { name: "Green", count: 59_000 },
   { name: "SNP", count: 69_325 },
@@ -77,6 +79,17 @@ const JANUARY_2025_POLL_VOTING_INTENTION_DATA: PoliticalPartyDataItem[] = [
   { name: "Plaid Cymru", count: 1 },
 ];
 
+// https://findoutnow.co.uk/blog/voting-intention-5th-feb-2025/
+const FEBRUARY_2025_POLL_VOTING_INTENTION_DATA: PoliticalPartyDataItem[] = [
+  { name: "Labour", count: 25 },
+  { name: "Conservatives", count: 18 },
+  { name: "Reform UK", count: 29 },
+  { name: "Liberal Democrats", count: 13 },
+  { name: "Green", count: 10 },
+  { name: "SNP", count: 3 },
+  { name: "Plaid Cymru", count: 1 },
+];
+
 export const DATASETS: { name: DatasetName; data: PoliticalPartyDataItem[] }[] =
   [
     { name: "Membership count", data: MEMBERSHIP_DATA },
@@ -88,6 +101,10 @@ export const DATASETS: { name: DatasetName; data: PoliticalPartyDataItem[] }[] =
     {
       name: "January 2025 - Voting Intention Poll",
       data: JANUARY_2025_POLL_VOTING_INTENTION_DATA,
+    },
+    {
+      name: "February 2025 - Voting Intention Poll",
+      data: FEBRUARY_2025_POLL_VOTING_INTENTION_DATA,
     },
   ]
     // Sort the data items of each dataset in descending order
