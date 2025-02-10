@@ -31,7 +31,10 @@ export function PoliticalPartyChart(props: PoliticalPartyChartProps) {
       // Otherwise, no data
       [];
 
-    if (props.selectedDatasetName === "Membership count") {
+    if (
+      props.selectedDatasetName === "Membership count" &&
+      props.numReformMembers
+    ) {
       return [
         // Remove static data
         ...sourceData.filter((x) => x.name !== "Reform UK"),
