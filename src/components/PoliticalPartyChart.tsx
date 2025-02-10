@@ -1,4 +1,9 @@
-import { PARTY_COLOURS, type PoliticalPartyDataItem } from "../utils/data";
+import {
+  DatasetName,
+  DATASETS,
+  PARTY_COLOURS,
+  PoliticalPartyDataItem,
+} from "../utils/data";
 import {
   Bar,
   BarChart,
@@ -10,14 +15,40 @@ import {
 } from "recharts";
 
 interface PoliticalPartyChartProps {
-  data: PoliticalPartyDataItem[];
+  selectedDatasetName: DatasetName;
+  numMembers: number;
 }
 
 export function PoliticalPartyChart(props: PoliticalPartyChartProps) {
+  const data = ((): PoliticalPartyDataItem[] => {
+    const sourceData =
+      // Using dataset name
+      DATASETS.find((dataset) => dataset.name === props.selectedDatasetName)
+        ?.data ??
+      // Otherwise, first dataset
+      DATASETS?.[0].data ??
+      // Otherwise, no data
+      [];
+
+    if (props.selectedDatasetName === "Membership count") {
+      return [
+        // Remove static data
+        ...sourceData.filter((x) => x.name !== "Reform UK"),
+        // Use determined membership instead
+        {
+          name: "Reform UK",
+          count: props.numMembers,
+        } as PoliticalPartyDataItem,
+      ].sort((a, b) => b.count - a.count);
+    }
+
+    return sourceData;
+  })();
+
   return (
     <ResponsiveContainer width="80%" height="95%">
       <BarChart
-        data={props.data}
+        data={data}
         width={500}
         height={300}
         margin={{
@@ -32,7 +63,7 @@ export function PoliticalPartyChart(props: PoliticalPartyChartProps) {
         <YAxis />
 
         <Bar dataKey="count">
-          {props.data.map((entry) => {
+          {data.map((entry) => {
             const colour =
               PARTY_COLOURS.find((party) => party.name === entry.name)
                 ?.colour ?? "#000000";
