@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Recharts Politics",
   description: "Charts using the Recharts library and politics data",
+  icons: { icon: "/favicon.png" },
 };
 
 export default function RootLayout({
