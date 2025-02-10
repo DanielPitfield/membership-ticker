@@ -78,6 +78,17 @@ const JANUARY_2025_POLL_VOTING_INTENTION_DATA: PoliticalPartyDataItem[] = [
   { name: "Plaid Cymru", count: 1 },
 ];
 
+// https://findoutnow.co.uk/blog/voting-intention-5th-feb-2025/
+const FEBRUARY_2025_POLL_VOTING_INTENTION_DATA: PoliticalPartyDataItem[] = [
+  { name: "Labour", count: 25 },
+  { name: "Conservatives", count: 18 },
+  { name: "Reform UK", count: 29 },
+  { name: "Liberal Democrats", count: 13 },
+  { name: "Green", count: 10 },
+  { name: "SNP", count: 3 },
+  { name: "Plaid Cymru", count: 1 },
+];
+
 export const DATASETS: { name: DatasetName; data: PoliticalPartyDataItem[] }[] =
   [
     { name: "Membership count", data: MEMBERSHIP_DATA },
@@ -89,6 +100,10 @@ export const DATASETS: { name: DatasetName; data: PoliticalPartyDataItem[] }[] =
     {
       name: "January 2025 - Voting Intention Poll",
       data: JANUARY_2025_POLL_VOTING_INTENTION_DATA,
+    },
+    {
+      name: "February 2025 - Voting Intention Poll",
+      data: FEBRUARY_2025_POLL_VOTING_INTENTION_DATA,
     },
   ]
     // Sort the data items of each dataset in descending order
