@@ -6,7 +6,7 @@ import { DatasetName, DATASET_NAMES, DATASETS } from "@/utils/data";
 import { useState } from "react";
 
 interface DataDisplayProps {
-  numMembers: number;
+  numReformMembers: number;
 }
 
 export function DataDisplay(props: DataDisplayProps) {
@@ -24,7 +24,7 @@ export function DataDisplay(props: DataDisplayProps) {
       <section>
         <PoliticalPartyChart
           selectedDatasetName={selectedDatasetName}
-          numMembers={props.numMembers}
+          numReformMembers={props.numReformMembers}
         />
       </section>
     </>

@@ -17,7 +17,7 @@ import {
 
 interface PoliticalPartyChartProps {
   selectedDatasetName: DatasetName;
-  numMembers: number;
+  numReformMembers: number;
 }
 
 export function PoliticalPartyChart(props: PoliticalPartyChartProps) {
@@ -38,7 +38,7 @@ export function PoliticalPartyChart(props: PoliticalPartyChartProps) {
         // Use determined membership instead
         {
           name: "Reform UK",
-          count: props.numMembers,
+          count: props.numReformMembers,
         } as PoliticalPartyDataItem,
       ].sort((a, b) => b.count - a.count);
     }
