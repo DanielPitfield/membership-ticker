@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Membership Ticker",
   description:
-    "Voting intention polls and membership numbers for the main political parties, using the most up-to-date numbers for Reform UK!",
+    "Voting intention polls and membership numbers, using the most up-to-date numbers for Reform UK!",
   icons: { icon: "/favicon.png" },
 };
 
