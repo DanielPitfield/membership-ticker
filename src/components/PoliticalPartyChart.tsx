@@ -73,7 +73,7 @@ export function PoliticalPartyChart(props: PoliticalPartyChartProps) {
 
         <Tooltip />
 
-        <Bar dataKey="count">
+        <Bar dataKey="count" radius={5}>
           {data.map((entry) => {
             const colour =
               PARTY_COLOURS.find((party) => party.name === entry.name)
