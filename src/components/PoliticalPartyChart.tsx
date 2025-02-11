@@ -62,7 +62,12 @@ export function PoliticalPartyChart(props: PoliticalPartyChartProps) {
           bottom: 5,
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
+        <CartesianGrid
+          strokeDasharray="3 0"
+          strokeOpacity={0.15}
+          strokeLinejoin="round"
+        />
+
         <XAxis dataKey="name" />
         <YAxis />
 
