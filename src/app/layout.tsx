@@ -2,8 +2,9 @@ import "./globals.scss";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Recharts Politics",
-  description: "Charts using the Recharts library and politics data",
+  title: "Membership Ticker",
+  description:
+    "Voting intention polls and membership numbers for the main political parties, using the most up-to-date numbers for Reform UK!",
   icons: { icon: "/favicon.png" },
 };
 
